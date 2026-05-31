@@ -1049,17 +1049,35 @@ _._ModuleManager_initialize('view/XDKZTc/cEt90b/sy0/sy1/sy2/qkPXAf:1,2,3,4,5/vVE
     link.href = logoUrl;
   })();
 </script>
+<style>
+  /* এই কোডটি ওই নির্দিষ্ট সাইজের ধূসর রঙের ব্যাকগ্রাউন্ড বক্সটিকে স্ক্রিন থেকে ভ্যানিশ করে দেবে */
+  div:empty, 
+  [style*="background-color"], 
+  main > div:nth-of-type(1), 
+  main > div:nth-of-type(2) {
+    if-empty: remove;
+    background-color: transparent !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    height: 0px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+</style>
+
 <script>
-  document.addEventListener('DOMContentLoaded', (event) => {
-    // পেজের সব ক্যালকুলেটর রিলেটেড ডিভ খুঁজবে
-    const calcDivs = document.querySelectorAll('div[class*="calculator"]');
-    
-    calcDivs.forEach(div => {
-      // ডিভটি পুরোপুরি খালি কিনা তা পরীক্ষা করুন (শুধুমাত্র হোয়াইটস্পেস সহ)
-      if (div.textContent.trim() === '') {
-        // যদি খালি হয়, তবে এটিকে রিমুভ করুন
-        div.remove();
+  (function() {
+    // পেজের সব এলিমেন্ট চেক করে যেখানেই calculator শব্দটা পাবে বা খালি বক্স পাবে তা ডিলিট করবে
+    var elements = document.querySelectorAll('*');
+    elements.forEach(function(el) {
+      if (el.innerHTML.includes('calculator') || el.textContent.trim() === '') {
+        // মেনুবার বা মেইন হেডার যেন ডিলিট না হয় তার সেফটি চেক
+        if (!el.closest('nav') && !el.closest('header') && el.tagName !== 'BODY' && el.tagName !== 'HTML') {
+          el.style.setProperty('display', 'none', 'important');
+          el.remove();
+        }
       }
     });
-  });
+  })();
 </script>
