@@ -1130,16 +1130,25 @@ _._ModuleManager_initialize('view/XDKZTc/cEt90b/sy0/sy1/sy2/qkPXAf:1,2,3,4,5/vVE
     link.href = logoUrl;
   })();
 </script>
-<style>
-  body > div:nth-child(2),
-  body > div:nth-child(3),
-  body > section:nth-child(2),
-  main > div:nth-child(2) {
-    /* এটি আপনার হোম পেজের মাঝখানের ওই বাড়তি বক্সটিকে জোর করে গায়েব করে দেবে */
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    height: 0 !important;
-    overflow: hidden !important;
-  }
-</style>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    // পেজের সব বাটন খুঁজবে
+    var buttons = document.querySelectorAll('button');
+    buttons.forEach(function(btn) {
+      // যে বাটনের ভেতর সমান চিহ্ন (=) আছে, তাকে টার্গেট করবে
+      if (btn.textContent.trim() === '=') {
+        // ওই বাটনের চারপাশের মেইন বক্স বা কন্টেইনারটিকে খুঁজে বের করবে
+        var calculatorBox = btn.parentElement;
+        while (calculatorBox && calculatorBox.tagName !== 'BODY') {
+          // মেনুবার যেন ভুল করে ডিলিট না হয়, তাই সেফটি চেক
+          if (!calculatorBox.closest('nav') && (calculatorBox.matches('div') || calculatorBox.matches('section'))) {
+            calculatorBox.style.setProperty('display', 'none', 'important');
+            calculatorBox.remove(); // ক্যালকুলেটরটি পুরোপুরি মুছে ফেলবে
+            break;
+          }
+          calculatorBox = calculatorBox.parentElement;
+        }
+      }
+    });
+  });
+</script>
