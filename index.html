@@ -139,33 +139,7 @@ if(D.u!==R){I(!D.u,"Failed to set the default implementation to <"+R+">: The def
 &lt;/head&gt;
 &lt;body&gt;
 
-&lt;div class=&quot;calculator&quot;&gt;
-    &lt;input type=&quot;text&quot; id=&quot;display&quot; readonly placeholder=&quot;0&quot;&gt;
-    
-    &lt;div class=&quot;buttons&quot;&gt;
-        &lt;button class=&quot;clear&quot; onclick=&quot;clearDisplay()&quot;&gt;C&lt;/button&gt;
-        &lt;button onclick=&quot;appendValue(&#39;/&#39;)&quot; class=&quot;operator&quot;&gt;/&lt;/button&gt;
-        &lt;button onclick=&quot;appendValue(&#39;*&#39;)&quot; class=&quot;operator&quot;&gt;*&lt;/button&gt;
-        &lt;button onclick=&quot;appendValue(&#39;-&#39;)&quot; class=&quot;operator&quot;&gt;-&lt;/button&gt;
-        
-        &lt;button onclick=&quot;appendValue(&#39;7&#39;)&quot;&gt;7&lt;/button&gt;
-        &lt;button onclick=&quot;appendValue(&#39;8&#39;)&quot;&gt;8&lt;/button&gt;
-        &lt;button onclick=&quot;appendValue(&#39;9&#39;)&quot;&gt;9&lt;/button&gt;
-        &lt;button onclick=&quot;appendValue(&#39;+&#39;)&quot; class=&quot;operator&quot;&gt;+&lt;/button&gt;
-        
-        &lt;button onclick=&quot;appendValue(&#39;4&#39;)&quot;&gt;4&lt;/button&gt;
-        &lt;button onclick=&quot;appendValue(&#39;5&#39;)&quot;&gt;5&lt;/button&gt;
-        &lt;button onclick=&quot;appendValue(&#39;6&#39;)&quot;&gt;6&lt;/button&gt;
-        &lt;button onclick=&quot;calculate()&quot; style=&quot;grid-row: span 2; background-color: #34c759; color: white;&quot;&gt;=&lt;/button&gt;
-        
-        &lt;button onclick=&quot;appendValue(&#39;1&#39;)&quot;&gt;1&lt;/button&gt;
-        &lt;button onclick=&quot;appendValue(&#39;2&#39;)&quot;&gt;2&lt;/button&gt;
-        &lt;button onclick=&quot;appendValue(&#39;3&#39;)&quot;&gt;3&lt;/button&gt;
-        
-        &lt;button onclick=&quot;appendValue(&#39;0&#39;)&quot; style=&quot;grid-column: span 2;&quot;&gt;0&lt;/button&gt;
-        &lt;button onclick=&quot;appendValue(&#39;.&#39;)&quot;&gt;.&lt;/button&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
+
 
 &lt;script&gt;
     let display = document.getElementById(&#39;display&#39;);
@@ -1129,26 +1103,4 @@ _._ModuleManager_initialize('view/XDKZTc/cEt90b/sy0/sy1/sy2/qkPXAf:1,2,3,4,5/vVE
     link.type = 'image/png';
     link.href = logoUrl;
   })();
-</script>
-<script>
-  window.addEventListener('DOMContentLoaded', (event) => {
-    // পেজের সব বাটন খুঁজবে
-    var buttons = document.querySelectorAll('button');
-    buttons.forEach(function(btn) {
-      // যে বাটনের ভেতর সমান চিহ্ন (=) আছে, তাকে টার্গেট করবে
-      if (btn.textContent.trim() === '=') {
-        // ওই বাটনের চারপাশের মেইন বক্স বা কন্টেইনারটিকে খুঁজে বের করবে
-        var calculatorBox = btn.parentElement;
-        while (calculatorBox && calculatorBox.tagName !== 'BODY') {
-          // মেনুবার যেন ভুল করে ডিলিট না হয়, তাই সেফটি চেক
-          if (!calculatorBox.closest('nav') && (calculatorBox.matches('div') || calculatorBox.matches('section'))) {
-            calculatorBox.style.setProperty('display', 'none', 'important');
-            calculatorBox.remove(); // ক্যালকুলেটরটি পুরোপুরি মুছে ফেলবে
-            break;
-          }
-          calculatorBox = calculatorBox.parentElement;
-        }
-      }
-    });
-  });
 </script>
