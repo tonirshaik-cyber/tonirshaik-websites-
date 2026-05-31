@@ -1049,3 +1049,17 @@ _._ModuleManager_initialize('view/XDKZTc/cEt90b/sy0/sy1/sy2/qkPXAf:1,2,3,4,5/vVE
     link.href = logoUrl;
   })();
 </script>
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    // পেজের সব ক্যালকুলেটর রিলেটেড ডিভ খুঁজবে
+    const calcDivs = document.querySelectorAll('div[class*="calculator"]');
+    
+    calcDivs.forEach(div => {
+      // ডিভটি পুরোপুরি খালি কিনা তা পরীক্ষা করুন (শুধুমাত্র হোয়াইটস্পেস সহ)
+      if (div.textContent.trim() === '') {
+        // যদি খালি হয়, তবে এটিকে রিমুভ করুন
+        div.remove();
+      }
+    });
+  });
+</script>
