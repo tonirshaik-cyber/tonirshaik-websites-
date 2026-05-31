@@ -139,61 +139,6 @@ if(D.u!==R){I(!D.u,"Failed to set the default implementation to <"+R+">: The def
 &lt;/head&gt;
 &lt;body&gt;
 
-
-
-&lt;script&gt;
-    let display = document.getElementById(&#39;display&#39;);
-
-    // স্ক্রিনে ইনপুট দেওয়ার ফাংশন
-    function appendValue(val) {
-        display.value += val;
-    }
-
-    // স্ক্রিন ক্লিয়ার করার ফাংশন
-    function clearDisplay() {
-        display.value = &#39;&#39;;
-    }
-
-    // ব্যাকস্পেস (একটি সংখ্যা মোছার) ফাংশন
-    function backspace() {
-        display.value = display.value.slice(0, -1);
-    }
-
-    // ফাইনাল হিসাব করার ফাংশন
-    function calculate() {
-        try {
-            if (display.value !== &#39;&#39;) {
-                display.value = eval(display.value);
-            }
-        } catch (error) {
-            display.value = &#39;Error&#39;;
-        }
-    }
-
-    // কিবোর্ড সাপোর্ট অ্যাড করার অংশ (নতুন সংযোজন)
-    document.addEventListener(&#39;keydown&#39;, function(event) {
-        const key = event.key;
-
-        // ০ থেকে ৯ এবং অপারেটর (+, -, *, /, .) চেক করা
-        if ((key &gt;= &#39;0&#39; &amp;&amp; key &lt;= &#39;9&#39;) || key === &#39;+&#39; || key === &#39;-&#39; || key === &#39;*&#39; || key === &#39;/&#39; || key === &#39;.&#39;) {
-            appendValue(key);
-        }
-        // Enter চাপলে হিসাব হবে
-        else if (key === &#39;Enter&#39;) {
-            event.preventDefault(); // পেজ রিলোড হওয়া আটকাবে
-            calculate();
-        }
-        // Backspace চাপলে একটা করে সংখ্যা মুছবে
-        else if (key === &#39;Backspace&#39;) {
-            backspace();
-        }
-        // Escape (Esc) চাপলে পুরো স্ক্রিন ক্লিয়ার হবে
-        else if (key === &#39;Escape&#39;) {
-            clearDisplay();
-        }
-    });
-&lt;/script&gt;
-
 &lt;/body&gt;
 &lt;/html&gt;" jsaction="rcuQ6b:rcuQ6b;"><iframe class="pxjVId"></iframe></div></div></div></div></div></div></div></div></div></div></div></div></div></section></div></div></div></div><script nonce="n1LvpENpwaJyT8nfajMObA">DOCS_timing['cov']=new Date().getTime();</script><script id="base-js" nonce="n1LvpENpwaJyT8nfajMObA">var _F_jsUrl = '/_/atari/_/js/k=';
 "use strict";this.default_tk=this.default_tk||{};(function(_){var window=this;
