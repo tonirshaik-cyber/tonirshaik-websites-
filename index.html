@@ -1130,18 +1130,10 @@ _._ModuleManager_initialize('view/XDKZTc/cEt90b/sy0/sy1/sy2/qkPXAf:1,2,3,4,5/vVE
     link.href = logoUrl;
   })();
 </script>
-<script>
-  (function() {
-    // ক্যালকুলেটরের বাটন (১, ২, ৩) টেক্সট ধরে মেইন বক্সটি খুঁজে বের করার কোড
-    var allDivs = document.querySelectorAll('div, section, aside');
-    allDivs.forEach(function(el) {
-      if (el.textContent.includes('1') && el.textContent.includes('2') && el.textContent.includes('3') && el.textContent.includes('0')) {
-        // মেনুবারের লেখা যেন ভুল করে ডিলিট না হয়, তাই নিশ্চিত হয়ে রিমুভ করা হচ্ছে
-        if (!el.closest('nav') && el.offsetWidth > 0) {
-          el.style.setProperty('display', 'none', 'important'); // স্ক্রিন থেকে জোরপূর্বক হাইড করবে
-          el.remove(); // ওয়েবসাইট থেকে মুছে দেবে
-        }
-      }
-    });
-  })();
-</script>
+<style>
+  div:has(button):has(input), 
+  div:has(table) button,
+  [class*="calc"] {
+    display: none !important;
+  }
+</style>
